@@ -11,10 +11,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.post('/contact/send-message', (req, res) => {
-    const { author, sender, title, message, file } = req.body;
-
-    if (author && sender && title && message && file) {
-        res.render('contact', { isSent: true, fileName: file });
+    const { author, sender, title, message, image } = req.body;
+    if (author && sender && title && message && image) {
+        res.render('contact', { isSent: true });
     } else {
         res.render('contact', { isError: true });
     }

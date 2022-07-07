@@ -10,7 +10,7 @@ Your message has been sent!
 File {{fileName}} has been sent!
 </div>
 {{/if}}
-<form action="/contact/send-message" method="POST" >
+<form action="/contact/send-message" method="POST" enctype="multipart/form-data">
     <label>
         Your name: <input type="text" name="author">
     </label>
@@ -21,7 +21,7 @@ File {{fileName}} has been sent!
         Title: <input type="text" name="title">
     </label>
     <label>
-        File: <input type="file" name="file" accept="image/png, image/gif, image/jpeg, image/jpg"></input>
+        File: <input type="file" name="image" accept="image/png, image/gif, image/jpeg, image/jpg"></input>
     </label>
     <label>
         Message: <textarea name="message"></textarea>
