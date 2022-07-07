@@ -11,7 +11,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.post('/contact/send-message', (req, res) => {
-    res.json(req.body);
+    const { author, sender, title, message, file } = req.body;
+
+    if (author && sender && title && message && file) {
+        res.render('contact', { isSent: true, fileName: file });
+    } else {
+        res.render('contact', { isError: true });
+    }
 });
 
 app.get('/', (req, res) => {
@@ -35,7 +41,7 @@ app.get('/info', (req, res) => {
 });
 
 app.get('/history', (req, res) => {
-    res.render('history', { layout: 'dark' });
+    res.render('history');
 });
 
 app.use((req, res) => {
